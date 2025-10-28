@@ -1,0 +1,19 @@
+class BookDetailFragment : Fragment(R.layout.fragment_book_detail) {
+
+private val args: BookDetailFragmentArgs by navArgs()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        
+        val titleTextView: TextView = view.findViewById(R.id.tv_book_title)
+        val descriptionTextView: TextView = view.findViewById(R.id.tv_book_description)
+
+        val title = args.bookTitle
+        val description = args.bookDescription
+        
+        titleTextView.text = title
+        descriptionTextView.text = description
+        
+        (activity as? AppCompatActivity)?.supportActionBar?.title = title
+    }
+}
